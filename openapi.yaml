@@ -1,0 +1,6354 @@
+openapi: 3.0.0
+info:
+  title: Snippets API
+  description: Test description
+  termsOfService: 'https://www.google.com/policies/terms/'
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: "v1-oas3"
+security:
+  - Basic: []
+paths:
+  /ability/:
+    get:
+      operationId: ability_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AbilitySummary'
+      tags:
+        - ability
+    parameters: []
+  '/ability/{id}/':
+    get:
+      operationId: ability_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AbilityDetail'
+      tags:
+        - ability
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this ability.
+        required: true
+        schema:
+          type: integer
+  /berry-firmness/:
+    get:
+      operationId: berry-firmness_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/BerryFirmnessSummary'
+      tags:
+        - berry-firmness
+    parameters: []
+  '/berry-firmness/{id}/':
+    get:
+      operationId: berry-firmness_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BerryFirmnessDetail'
+      tags:
+        - berry-firmness
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this berry firmness.
+        required: true
+        schema:
+          type: integer
+  /berry-flavor/:
+    get:
+      operationId: berry-flavor_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/BerryFlavorSummary'
+      tags:
+        - berry-flavor
+    parameters: []
+  '/berry-flavor/{id}/':
+    get:
+      operationId: berry-flavor_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BerryFlavorDetail'
+      tags:
+        - berry-flavor
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this berry flavor.
+        required: true
+        schema:
+          type: integer
+  /berry/:
+    get:
+      operationId: berry_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/BerrySummary'
+      tags:
+        - berry
+    parameters: []
+  '/berry/{id}/':
+    get:
+      operationId: berry_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BerryDetail'
+      tags:
+        - berry
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this berry.
+        required: true
+        schema:
+          type: integer
+  /characteristic/:
+    get:
+      operationId: characteristic_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CharacteristicSummary'
+      tags:
+        - characteristic
+    parameters: []
+  '/characteristic/{id}/':
+    get:
+      operationId: characteristic_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CharacteristicDetail'
+      tags:
+        - characteristic
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this characteristic.
+        required: true
+        schema:
+          type: integer
+  /contest-effect/:
+    get:
+      operationId: contest-effect_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ContestEffectSummary'
+      tags:
+        - contest-effect
+    parameters: []
+  '/contest-effect/{id}/':
+    get:
+      operationId: contest-effect_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContestEffectDetail'
+      tags:
+        - contest-effect
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this contest effect.
+        required: true
+        schema:
+          type: integer
+  /contest-type/:
+    get:
+      operationId: contest-type_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ContestTypeSummary'
+      tags:
+        - contest-type
+    parameters: []
+  '/contest-type/{id}/':
+    get:
+      operationId: contest-type_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContestTypeDetail'
+      tags:
+        - contest-type
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this contest type.
+        required: true
+        schema:
+          type: integer
+  /egg-group/:
+    get:
+      operationId: egg-group_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EggGroupSummary'
+      tags:
+        - egg-group
+    parameters: []
+  '/egg-group/{id}/':
+    get:
+      operationId: egg-group_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EggGroupDetail'
+      tags:
+        - egg-group
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this egg group.
+        required: true
+        schema:
+          type: integer
+  /encounter-condition-value/:
+    get:
+      operationId: encounter-condition-value_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EncounterConditionValueSummary'
+      tags:
+        - encounter-condition-value
+    parameters: []
+  '/encounter-condition-value/{id}/':
+    get:
+      operationId: encounter-condition-value_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EncounterConditionValueDetail'
+      tags:
+        - encounter-condition-value
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this encounter condition value.
+        required: true
+        schema:
+          type: integer
+  /encounter-condition/:
+    get:
+      operationId: encounter-condition_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EncounterConditionSummary'
+      tags:
+        - encounter-condition
+    parameters: []
+  '/encounter-condition/{id}/':
+    get:
+      operationId: encounter-condition_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EncounterConditionDetail'
+      tags:
+        - encounter-condition
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this encounter condition.
+        required: true
+        schema:
+          type: integer
+  /encounter-method/:
+    get:
+      operationId: encounter-method_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EncounterMethodSummary'
+      tags:
+        - encounter-method
+    parameters: []
+  '/encounter-method/{id}/':
+    get:
+      operationId: encounter-method_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EncounterMethodDetail'
+      tags:
+        - encounter-method
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this encounter method.
+        required: true
+        schema:
+          type: integer
+  /evolution-chain/:
+    get:
+      operationId: evolution-chain_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EvolutionChainSummary'
+      tags:
+        - evolution-chain
+    parameters: []
+  '/evolution-chain/{id}/':
+    get:
+      operationId: evolution-chain_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EvolutionChainDetail'
+      tags:
+        - evolution-chain
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this evolution chain.
+        required: true
+        schema:
+          type: integer
+  /evolution-trigger/:
+    get:
+      operationId: evolution-trigger_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EvolutionTriggerSummary'
+      tags:
+        - evolution-trigger
+    parameters: []
+  '/evolution-trigger/{id}/':
+    get:
+      operationId: evolution-trigger_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EvolutionTriggerDetail'
+      tags:
+        - evolution-trigger
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this evolution trigger.
+        required: true
+        schema:
+          type: integer
+  /gender/:
+    get:
+      operationId: gender_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenderSummary'
+      tags:
+        - gender
+    parameters: []
+  '/gender/{id}/':
+    get:
+      operationId: gender_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenderDetail'
+      tags:
+        - gender
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this gender.
+        required: true
+        schema:
+          type: integer
+  /generation/:
+    get:
+      operationId: generation_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenerationSummary'
+      tags:
+        - generation
+    parameters: []
+  '/generation/{id}/':
+    get:
+      operationId: generation_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerationDetail'
+      tags:
+        - generation
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this generation.
+        required: true
+        schema:
+          type: integer
+  /growth-rate/:
+    get:
+      operationId: growth-rate_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GrowthRateSummary'
+      tags:
+        - growth-rate
+    parameters: []
+  '/growth-rate/{id}/':
+    get:
+      operationId: growth-rate_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrowthRateDetail'
+      tags:
+        - growth-rate
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this growth rate.
+        required: true
+        schema:
+          type: integer
+  /item-attribute/:
+    get:
+      operationId: item-attribute_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ItemAttributeSummary'
+      tags:
+        - item-attribute
+    parameters: []
+  '/item-attribute/{id}/':
+    get:
+      operationId: item-attribute_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemAttributeDetail'
+      tags:
+        - item-attribute
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this item attribute.
+        required: true
+        schema:
+          type: integer
+  /item-category/:
+    get:
+      operationId: item-category_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ItemCategorySummary'
+      tags:
+        - item-category
+    parameters: []
+  '/item-category/{id}/':
+    get:
+      operationId: item-category_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemCategoryDetail'
+      tags:
+        - item-category
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this item category.
+        required: true
+        schema:
+          type: integer
+  /item-fling-effect/:
+    get:
+      operationId: item-fling-effect_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ItemFlingEffectSummary'
+      tags:
+        - item-fling-effect
+    parameters: []
+  '/item-fling-effect/{id}/':
+    get:
+      operationId: item-fling-effect_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemFlingEffectDetail'
+      tags:
+        - item-fling-effect
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this item fling effect.
+        required: true
+        schema:
+          type: integer
+  /item-pocket/:
+    get:
+      operationId: item-pocket_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ItemPocketSummary'
+      tags:
+        - item-pocket
+    parameters: []
+  '/item-pocket/{id}/':
+    get:
+      operationId: item-pocket_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemPocketDetail'
+      tags:
+        - item-pocket
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this item pocket.
+        required: true
+        schema:
+          type: integer
+  /item/:
+    get:
+      operationId: item_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ItemSummary'
+      tags:
+        - item
+    parameters: []
+  '/item/{id}/':
+    get:
+      operationId: item_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemDetail'
+      tags:
+        - item
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this item.
+        required: true
+        schema:
+          type: integer
+  /language/:
+    get:
+      operationId: language_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/LanguageSummary'
+      tags:
+        - language
+    parameters: []
+  '/language/{id}/':
+    get:
+      operationId: language_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LanguageDetail'
+      tags:
+        - language
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this language.
+        required: true
+        schema:
+          type: integer
+  /location-area/:
+    get:
+      operationId: location-area_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/LocationAreaSummary'
+      tags:
+        - location-area
+    parameters: []
+  '/location-area/{id}/':
+    get:
+      operationId: location-area_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationAreaDetail'
+      tags:
+        - location-area
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this location area.
+        required: true
+        schema:
+          type: integer
+  /location/:
+    get:
+      operationId: location_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/LocationSummary'
+      tags:
+        - location
+    parameters: []
+  '/location/{id}/':
+    get:
+      operationId: location_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationDetail'
+      tags:
+        - location
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this location.
+        required: true
+        schema:
+          type: integer
+  /machine/:
+    get:
+      operationId: machine_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MachineSummary'
+      tags:
+        - machine
+    parameters: []
+  '/machine/{id}/':
+    get:
+      operationId: machine_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MachineDetail'
+      tags:
+        - machine
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this machine.
+        required: true
+        schema:
+          type: integer
+  /move-ailment/:
+    get:
+      operationId: move-ailment_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MoveMetaAilmentSummary'
+      tags:
+        - move-ailment
+    parameters: []
+  '/move-ailment/{id}/':
+    get:
+      operationId: move-ailment_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveMetaAilmentDetail'
+      tags:
+        - move-ailment
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this move meta ailment.
+        required: true
+        schema:
+          type: integer
+  /move-battle-style/:
+    get:
+      operationId: move-battle-style_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MoveBattleStyleSummary'
+      tags:
+        - move-battle-style
+    parameters: []
+  '/move-battle-style/{id}/':
+    get:
+      operationId: move-battle-style_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveBattleStyleDetail'
+      tags:
+        - move-battle-style
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this move battle style.
+        required: true
+        schema:
+          type: integer
+  /move-category/:
+    get:
+      operationId: move-category_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MoveMetaCategorySummary'
+      tags:
+        - move-category
+    parameters: []
+  '/move-category/{id}/':
+    get:
+      operationId: move-category_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveMetaCategoryDetail'
+      tags:
+        - move-category
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this move meta category.
+        required: true
+        schema:
+          type: integer
+  /move-damage-class/:
+    get:
+      operationId: move-damage-class_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MoveDamageClassSummary'
+      tags:
+        - move-damage-class
+    parameters: []
+  '/move-damage-class/{id}/':
+    get:
+      operationId: move-damage-class_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveDamageClassDetail'
+      tags:
+        - move-damage-class
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this move damage class.
+        required: true
+        schema:
+          type: integer
+  /move-learn-method/:
+    get:
+      operationId: move-learn-method_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MoveLearnMethodSummary'
+      tags:
+        - move-learn-method
+    parameters: []
+  '/move-learn-method/{id}/':
+    get:
+      operationId: move-learn-method_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveLearnMethodDetail'
+      tags:
+        - move-learn-method
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this move learn method.
+        required: true
+        schema:
+          type: integer
+  /move-target/:
+    get:
+      operationId: move-target_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MoveTargetSummary'
+      tags:
+        - move-target
+    parameters: []
+  '/move-target/{id}/':
+    get:
+      operationId: move-target_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveTargetDetail'
+      tags:
+        - move-target
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this move target.
+        required: true
+        schema:
+          type: integer
+  /move/:
+    get:
+      operationId: move_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MoveSummary'
+      tags:
+        - move
+    parameters: []
+  '/move/{id}/':
+    get:
+      operationId: move_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveDetail'
+      tags:
+        - move
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this move.
+        required: true
+        schema:
+          type: integer
+  /nature/:
+    get:
+      operationId: nature_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/NatureSummary'
+      tags:
+        - nature
+    parameters: []
+  '/nature/{id}/':
+    get:
+      operationId: nature_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NatureDetail'
+      tags:
+        - nature
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this nature.
+        required: true
+        schema:
+          type: integer
+  /pal-park-area/:
+    get:
+      operationId: pal-park-area_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PalParkAreaSummary'
+      tags:
+        - pal-park-area
+    parameters: []
+  '/pal-park-area/{id}/':
+    get:
+      operationId: pal-park-area_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PalParkAreaDetail'
+      tags:
+        - pal-park-area
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this pal park area.
+        required: true
+        schema:
+          type: integer
+  /pokeathlon-stat/:
+    get:
+      operationId: pokeathlon-stat_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PokeathlonStatSummary'
+      tags:
+        - pokeathlon-stat
+    parameters: []
+  '/pokeathlon-stat/{id}/':
+    get:
+      operationId: pokeathlon-stat_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PokeathlonStatDetail'
+      tags:
+        - pokeathlon-stat
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this pokeathlon stat.
+        required: true
+        schema:
+          type: integer
+  /pokedex/:
+    get:
+      operationId: pokedex_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PokedexSummary'
+      tags:
+        - pokedex
+    parameters: []
+  '/pokedex/{id}/':
+    get:
+      operationId: pokedex_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PokedexDetail'
+      tags:
+        - pokedex
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this pokedex.
+        required: true
+        schema:
+          type: integer
+  /pokemon-color/:
+    get:
+      operationId: pokemon-color_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PokemonColorSummary'
+      tags:
+        - pokemon-color
+    parameters: []
+  '/pokemon-color/{id}/':
+    get:
+      operationId: pokemon-color_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PokemonColorDetail'
+      tags:
+        - pokemon-color
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this pokemon color.
+        required: true
+        schema:
+          type: integer
+  /pokemon-form/:
+    get:
+      operationId: pokemon-form_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PokemonFormSummary'
+      tags:
+        - pokemon-form
+    parameters: []
+  '/pokemon-form/{id}/':
+    get:
+      operationId: pokemon-form_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PokemonFormDetail'
+      tags:
+        - pokemon-form
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this pokemon form.
+        required: true
+        schema:
+          type: integer
+  /pokemon-habitat/:
+    get:
+      operationId: pokemon-habitat_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PokemonHabitatSummary'
+      tags:
+        - pokemon-habitat
+    parameters: []
+  '/pokemon-habitat/{id}/':
+    get:
+      operationId: pokemon-habitat_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PokemonHabitatDetail'
+      tags:
+        - pokemon-habitat
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this pokemon habitat.
+        required: true
+        schema:
+          type: integer
+  /pokemon-shape/:
+    get:
+      operationId: pokemon-shape_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PokemonShapeSummary'
+      tags:
+        - pokemon-shape
+    parameters: []
+  '/pokemon-shape/{id}/':
+    get:
+      operationId: pokemon-shape_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PokemonShapeDetail'
+      tags:
+        - pokemon-shape
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this pokemon shape.
+        required: true
+        schema:
+          type: integer
+  /pokemon-species/:
+    get:
+      operationId: pokemon-species_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PokemonSpeciesSummary'
+      tags:
+        - pokemon-species
+    parameters: []
+  '/pokemon-species/{id}/':
+    get:
+      operationId: pokemon-species_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PokemonSpeciesDetail'
+      tags:
+        - pokemon-species
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this pokemon species.
+        required: true
+        schema:
+          type: integer
+  /pokemon/:
+    get:
+      operationId: pokemon_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PokemonSummary'
+      tags:
+        - pokemon
+    parameters: []
+  '/pokemon/{id}/':
+    get:
+      operationId: pokemon_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PokemonDetail'
+      tags:
+        - pokemon
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this pokemon.
+        required: true
+        schema:
+          type: integer
+  '/pokemon/{pokemon_id}/encounters':
+    get:
+      operationId: pokemon_encounters_list
+      description: Handles Pokemon Encounters as a sub-resource.
+      responses:
+        '200':
+          description: ''
+      tags:
+        - pokemon
+    parameters:
+      - name: pokemon_id
+        in: path
+        required: true
+        schema:
+          type: string
+  /region/:
+    get:
+      operationId: region_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RegionSummary'
+      tags:
+        - region
+    parameters: []
+  '/region/{id}/':
+    get:
+      operationId: region_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionDetail'
+      tags:
+        - region
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this region.
+        required: true
+        schema:
+          type: integer
+  /stat/:
+    get:
+      operationId: stat_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/StatSummary'
+      tags:
+        - stat
+    parameters: []
+  '/stat/{id}/':
+    get:
+      operationId: stat_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatDetail'
+      tags:
+        - stat
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this stat.
+        required: true
+        schema:
+          type: integer
+  /super-contest-effect/:
+    get:
+      operationId: super-contest-effect_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SuperContestEffectSummary'
+      tags:
+        - super-contest-effect
+    parameters: []
+  '/super-contest-effect/{id}/':
+    get:
+      operationId: super-contest-effect_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuperContestEffectDetail'
+      tags:
+        - super-contest-effect
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this super contest effect.
+        required: true
+        schema:
+          type: integer
+  /type/:
+    get:
+      operationId: type_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TypeSummary'
+      tags:
+        - type
+    parameters: []
+  '/type/{id}/':
+    get:
+      operationId: type_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TypeDetail'
+      tags:
+        - type
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this type.
+        required: true
+        schema:
+          type: integer
+  /version-group/:
+    get:
+      operationId: version-group_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/VersionGroupSummary'
+      tags:
+        - version-group
+    parameters: []
+  '/version-group/{id}/':
+    get:
+      operationId: version-group_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionGroupDetail'
+      tags:
+        - version-group
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this version group.
+        required: true
+        schema:
+          type: integer
+  /version/:
+    get:
+      operationId: version_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/VersionSummary'
+      tags:
+        - version
+    parameters: []
+  '/version/{id}/':
+    get:
+      operationId: version_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionDetail'
+      tags:
+        - version
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this version.
+        required: true
+        schema:
+          type: integer
+servers:
+  - url: 'http://localhost:8000/api/v2'
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic
+  schemas:
+    AbilitySummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    GenerationSummary:
+      title: Generation
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    LanguageSummary:
+      title: Language
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    AbilityName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    AbilityEffectText:
+      required:
+        - effect
+        - short_effect
+        - language
+      type: object
+      properties:
+        effect:
+          title: Effect
+          type: string
+          maxLength: 6000
+          minLength: 1
+        short_effect:
+          title: Short effect
+          type: string
+          maxLength: 300
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    VersionGroupSummary:
+      title: Version group
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    AbilityChangeEffectText:
+      required:
+        - effect
+        - language
+      type: object
+      properties:
+        effect:
+          title: Effect
+          type: string
+          maxLength: 6000
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    AbilityChange:
+      required:
+        - version_group
+      type: object
+      properties:
+        version_group:
+          $ref: '#/components/schemas/VersionGroupSummary'
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/AbilityChangeEffectText'
+          readOnly: true
+    AbilityFlavorText:
+      required:
+        - flavor_text
+        - language
+        - version_group
+      type: object
+      properties:
+        flavor_text:
+          title: Flavor text
+          type: string
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+        version_group:
+          $ref: '#/components/schemas/VersionGroupSummary'
+    AbilityDetail:
+      required:
+        - name
+        - generation
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        is_main_series:
+          title: Is main series
+          type: boolean
+        generation:
+          $ref: '#/components/schemas/GenerationSummary'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/AbilityName'
+          readOnly: true
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/AbilityEffectText'
+          readOnly: true
+        effect_changes:
+          type: array
+          items:
+            $ref: '#/components/schemas/AbilityChange'
+          readOnly: true
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/AbilityFlavorText'
+          readOnly: true
+        pokemon:
+          title: Pokemon
+          type: string
+          readOnly: true
+    BerryFirmnessSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    BerrySummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    BerryFirmnessName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    BerryFirmnessDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        berries:
+          type: array
+          items:
+            $ref: '#/components/schemas/BerrySummary'
+          readOnly: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/BerryFirmnessName'
+          readOnly: true
+    BerryFlavorSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    ContestTypeSummary:
+      title: Contest type
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    BerryFlavorName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    BerryFlavorDetail:
+      required:
+        - name
+        - contest_type
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        berries:
+          title: Berries
+          type: string
+          readOnly: true
+        contest_type:
+          $ref: '#/components/schemas/ContestTypeSummary'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/BerryFlavorName'
+          readOnly: true
+    ItemSummary:
+      title: Item
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    TypeSummary:
+      title: Natural gift type
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    BerryDetail:
+      required:
+        - name
+        - growth_time
+        - max_harvest
+        - natural_gift_power
+        - size
+        - smoothness
+        - soil_dryness
+        - firmness
+        - item
+        - natural_gift_type
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        growth_time:
+          title: Growth time
+          type: integer
+        max_harvest:
+          title: Max harvest
+          type: integer
+        natural_gift_power:
+          title: Natural gift power
+          type: integer
+        size:
+          title: Size
+          type: integer
+        smoothness:
+          title: Smoothness
+          type: integer
+        soil_dryness:
+          title: Soil dryness
+          type: integer
+        firmness:
+          $ref: '#/components/schemas/BerryFirmnessSummary'
+        flavors:
+          title: Flavors
+          type: string
+          readOnly: true
+        item:
+          $ref: '#/components/schemas/ItemSummary'
+        natural_gift_type:
+          $ref: '#/components/schemas/TypeSummary'
+    CharacteristicSummary:
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    StatSummary:
+      title: Highest stat
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    CharacteristicDescription:
+      required:
+        - language
+      type: object
+      properties:
+        description:
+          title: Description
+          type: string
+          maxLength: 1000
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    CharacteristicDetail:
+      required:
+        - gene_modulo
+        - highest_stat
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        gene_modulo:
+          title: Gene modulo
+          type: integer
+        possible_values:
+          title: Possible values
+          type: string
+          readOnly: true
+        highest_stat:
+          $ref: '#/components/schemas/StatSummary'
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/CharacteristicDescription'
+          readOnly: true
+    ContestEffectSummary:
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    ContestEffectEffectText:
+      required:
+        - effect
+        - language
+      type: object
+      properties:
+        effect:
+          title: Effect
+          type: string
+          maxLength: 6000
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    ContestEffectFlavorText:
+      required:
+        - flavor_text
+        - language
+      type: object
+      properties:
+        flavor_text:
+          title: Flavor text
+          type: string
+          maxLength: 500
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    ContestEffectDetail:
+      required:
+        - appeal
+        - jam
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        appeal:
+          title: Appeal
+          type: integer
+        jam:
+          title: Jam
+          type: integer
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContestEffectEffectText'
+          readOnly: true
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContestEffectFlavorText'
+          readOnly: true
+    ContestTypeName:
+      required:
+        - name
+        - color
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        color:
+          title: Color
+          type: string
+          maxLength: 10
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    ContestTypeDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        berry_flavor:
+          $ref: '#/components/schemas/BerryFlavorSummary'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContestTypeName'
+          readOnly: true
+    EggGroupSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    EggGroupName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    EggGroupDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/EggGroupName'
+          readOnly: true
+        pokemon_species:
+          title: Pokemon species
+          type: string
+          readOnly: true
+    EncounterConditionValueSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    EncounterConditionSummary:
+      title: Condition
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    EncounterConditionValueName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    EncounterConditionValueDetail:
+      required:
+        - name
+        - condition
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        condition:
+          $ref: '#/components/schemas/EncounterConditionSummary'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/EncounterConditionValueName'
+          readOnly: true
+    EncounterConditionName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    EncounterConditionDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/EncounterConditionValueSummary'
+          readOnly: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/EncounterConditionName'
+          readOnly: true
+    EncounterMethodSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    EncounterMethodName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    EncounterMethodDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        order:
+          title: Order
+          type: integer
+          nullable: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/EncounterMethodName'
+          readOnly: true
+    EvolutionChainSummary:
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    EvolutionChainDetail:
+      required:
+        - baby_trigger_item
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        baby_trigger_item:
+          $ref: '#/components/schemas/ItemSummary'
+        chain:
+          title: Chain
+          type: string
+          readOnly: true
+    EvolutionTriggerSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    EvolutionTriggerName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    EvolutionTriggerDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/EvolutionTriggerName'
+          readOnly: true
+        pokemon_species:
+          title: Pokemon species
+          type: string
+          readOnly: true
+    GenderSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    GenderDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        pokemon_species_details:
+          title: Pokemon species details
+          type: string
+          readOnly: true
+        required_for_evolution:
+          title: Required for evolution
+          type: string
+          readOnly: true
+    RegionSummary:
+      title: Main region
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    MoveSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    GenerationName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    PokemonSpeciesSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    GenerationDetail:
+      required:
+        - name
+        - main_region
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        abilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/AbilitySummary'
+          readOnly: true
+        main_region:
+          $ref: '#/components/schemas/RegionSummary'
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoveSummary'
+          readOnly: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/GenerationName'
+          readOnly: true
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/PokemonSpeciesSummary'
+          readOnly: true
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/TypeSummary'
+          readOnly: true
+        version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/VersionGroupSummary'
+          readOnly: true
+    GrowthRateSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    GrowthRateDescription:
+      required:
+        - language
+      type: object
+      properties:
+        description:
+          title: Description
+          type: string
+          maxLength: 1000
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    Experience:
+      required:
+        - level
+        - experience
+      type: object
+      properties:
+        level:
+          title: Level
+          type: integer
+        experience:
+          title: Experience
+          type: integer
+    GrowthRateDetail:
+      required:
+        - name
+        - formula
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        formula:
+          title: Formula
+          type: string
+          maxLength: 500
+          minLength: 1
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GrowthRateDescription'
+          readOnly: true
+        levels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Experience'
+          readOnly: true
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/PokemonSpeciesSummary'
+          readOnly: true
+    ItemAttributeSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    ItemAttributeDescription:
+      required:
+        - language
+      type: object
+      properties:
+        description:
+          title: Description
+          type: string
+          maxLength: 1000
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    ItemAttributeName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    ItemAttributeDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemAttributeDescription'
+          readOnly: true
+        items:
+          title: Items
+          type: string
+          readOnly: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemAttributeName'
+          readOnly: true
+    ItemCategorySummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    ItemCategoryName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    ItemPocketSummary:
+      title: Pocket
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    ItemCategoryDetail:
+      required:
+        - name
+        - pocket
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemSummary'
+          readOnly: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemCategoryName'
+          readOnly: true
+        pocket:
+          $ref: '#/components/schemas/ItemPocketSummary'
+    ItemFlingEffectSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    ItemFlingEffectEffectText:
+      required:
+        - effect
+        - language
+      type: object
+      properties:
+        effect:
+          title: Effect
+          type: string
+          maxLength: 6000
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    ItemFlingEffectDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemFlingEffectEffectText'
+          readOnly: true
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemSummary'
+          readOnly: true
+    ItemPocketName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    ItemPocketDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemCategorySummary'
+          readOnly: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemPocketName'
+          readOnly: true
+    ItemEffectText:
+      required:
+        - effect
+        - short_effect
+        - language
+      type: object
+      properties:
+        effect:
+          title: Effect
+          type: string
+          maxLength: 6000
+          minLength: 1
+        short_effect:
+          title: Short effect
+          type: string
+          maxLength: 300
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    ItemFlavorText:
+      required:
+        - text
+        - version_group
+        - language
+      type: object
+      properties:
+        text:
+          title: Text
+          type: string
+          minLength: 1
+        version_group:
+          $ref: '#/components/schemas/VersionGroupSummary'
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    ItemGameIndex:
+      required:
+        - game_index
+        - generation
+      type: object
+      properties:
+        game_index:
+          title: Game index
+          type: integer
+        generation:
+          $ref: '#/components/schemas/GenerationSummary'
+    ItemName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    ItemDetail:
+      required:
+        - name
+        - fling_effect
+        - category
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        cost:
+          title: Cost
+          type: integer
+          nullable: true
+        fling_power:
+          title: Fling power
+          type: integer
+          nullable: true
+        fling_effect:
+          $ref: '#/components/schemas/ItemFlingEffectSummary'
+        attributes:
+          title: Attributes
+          type: string
+          readOnly: true
+        category:
+          $ref: '#/components/schemas/ItemCategorySummary'
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemEffectText'
+          readOnly: true
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemFlavorText'
+          readOnly: true
+        game_indices:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemGameIndex'
+          readOnly: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemName'
+          readOnly: true
+        held_by_pokemon:
+          title: Held by pokemon
+          type: string
+          readOnly: true
+        sprites:
+          title: Sprites
+          type: string
+          readOnly: true
+        baby_trigger_for:
+          title: Baby trigger for
+          type: string
+          readOnly: true
+        machines:
+          title: Machines
+          type: string
+          readOnly: true
+    LanguageName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    LanguageDetail:
+      required:
+        - name
+        - iso639
+        - iso3166
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        official:
+          title: Official
+          type: boolean
+        iso639:
+          title: Iso639
+          type: string
+          maxLength: 10
+          minLength: 1
+        iso3166:
+          title: Iso3166
+          type: string
+          maxLength: 2
+          minLength: 1
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/LanguageName'
+          readOnly: true
+    LocationAreaSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    LocationSummary:
+      title: Location
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    LocationAreaName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    LocationAreaDetail:
+      required:
+        - name
+        - game_index
+        - location
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        game_index:
+          title: Game index
+          type: integer
+        encounter_method_rates:
+          title: Encounter method rates
+          type: string
+          readOnly: true
+        location:
+          $ref: '#/components/schemas/LocationSummary'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocationAreaName'
+          readOnly: true
+        pokemon_encounters:
+          title: Pokemon encounters
+          type: string
+          readOnly: true
+    LocationName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    LocationGameIndex:
+      required:
+        - game_index
+        - generation
+      type: object
+      properties:
+        game_index:
+          title: Game index
+          type: integer
+        generation:
+          $ref: '#/components/schemas/GenerationSummary'
+    LocationDetail:
+      required:
+        - name
+        - region
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        region:
+          $ref: '#/components/schemas/RegionSummary'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocationName'
+          readOnly: true
+        game_indices:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocationGameIndex'
+          readOnly: true
+        areas:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocationAreaSummary'
+          readOnly: true
+    MachineSummary:
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    MachineDetail:
+      required:
+        - item
+        - version_group
+        - move
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        item:
+          $ref: '#/components/schemas/ItemSummary'
+        version_group:
+          $ref: '#/components/schemas/VersionGroupSummary'
+        move:
+          $ref: '#/components/schemas/MoveSummary'
+    MoveMetaAilmentSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    MoveMetaAilmentName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    MoveMetaAilmentDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        moves:
+          title: Moves
+          type: string
+          readOnly: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoveMetaAilmentName'
+          readOnly: true
+    MoveBattleStyleSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    MoveBattleStyleName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    MoveBattleStyleDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoveBattleStyleName'
+          readOnly: true
+    MoveMetaCategorySummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    MoveMetaCategoryDescription:
+      required:
+        - language
+      type: object
+      properties:
+        description:
+          title: Description
+          type: string
+          maxLength: 1000
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    MoveMetaCategoryDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoveMetaCategoryDescription'
+          readOnly: true
+        moves:
+          title: Moves
+          type: string
+          readOnly: true
+    MoveDamageClassSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    MoveDamageClassDescription:
+      required:
+        - language
+      type: object
+      properties:
+        description:
+          title: Description
+          type: string
+          maxLength: 1000
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    MoveDamageClassName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    MoveDamageClassDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoveDamageClassDescription'
+          readOnly: true
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoveSummary'
+          readOnly: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoveDamageClassName'
+          readOnly: true
+    MoveLearnMethodSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    MoveLearnMethodName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    MoveLearnMethodDescription:
+      required:
+        - language
+      type: object
+      properties:
+        description:
+          title: Description
+          type: string
+          maxLength: 1000
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    MoveLearnMethodDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoveLearnMethodName'
+          readOnly: true
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoveLearnMethodDescription'
+          readOnly: true
+        version_groups:
+          title: Version groups
+          type: string
+          readOnly: true
+    MoveTargetSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    MoveTargetDescription:
+      required:
+        - language
+      type: object
+      properties:
+        description:
+          title: Description
+          type: string
+          maxLength: 1000
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    MoveTargetName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    MoveTargetDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoveTargetDescription'
+          readOnly: true
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoveSummary'
+          readOnly: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoveTargetName'
+          readOnly: true
+    MoveMeta:
+      title: Meta
+      required:
+        - ailment
+        - category
+      type: object
+      properties:
+        ailment:
+          $ref: '#/components/schemas/MoveMetaAilmentSummary'
+        category:
+          $ref: '#/components/schemas/MoveMetaCategorySummary'
+        min_hits:
+          title: Min hits
+          type: integer
+          nullable: true
+        max_hits:
+          title: Max hits
+          type: integer
+          nullable: true
+        min_turns:
+          title: Min turns
+          type: integer
+          nullable: true
+        max_turns:
+          title: Max turns
+          type: integer
+          nullable: true
+        drain:
+          title: Drain
+          type: integer
+          nullable: true
+        healing:
+          title: Healing
+          type: integer
+          nullable: true
+        crit_rate:
+          title: Crit rate
+          type: integer
+          nullable: true
+        ailment_chance:
+          title: Ailment chance
+          type: integer
+          nullable: true
+        flinch_chance:
+          title: Flinch chance
+          type: integer
+          nullable: true
+        stat_chance:
+          title: Stat chance
+          type: integer
+          nullable: true
+    MoveName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    MoveChange:
+      required:
+        - effect_chance
+        - type
+        - version_group
+      type: object
+      properties:
+        accuracy:
+          title: Accuracy
+          type: integer
+          nullable: true
+        power:
+          title: Power
+          type: integer
+          nullable: true
+        pp:
+          title: Pp
+          type: integer
+          nullable: true
+        effect_chance:
+          title: Effect chance
+          type: integer
+        effect_entries:
+          title: Effect entries
+          type: string
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/TypeSummary'
+        version_group:
+          $ref: '#/components/schemas/VersionGroupSummary'
+    SuperContestEffectSummary:
+      title: Super contest effect
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    MoveFlavorText:
+      required:
+        - flavor_text
+        - language
+        - version_group
+      type: object
+      properties:
+        flavor_text:
+          title: Flavor text
+          type: string
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+        version_group:
+          $ref: '#/components/schemas/VersionGroupSummary'
+    MoveDetail:
+      required:
+        - name
+        - effect_chance
+        - contest_type
+        - contest_effect
+        - damage_class
+        - generation
+        - super_contest_effect
+        - target
+        - type
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        accuracy:
+          title: Accuracy
+          type: integer
+          nullable: true
+        effect_chance:
+          title: Effect chance
+          type: integer
+        pp:
+          title: Pp
+          type: integer
+          nullable: true
+        priority:
+          title: Priority
+          type: integer
+          nullable: true
+        power:
+          title: Power
+          type: integer
+          nullable: true
+        contest_combos:
+          title: Contest combos
+          type: string
+          readOnly: true
+        contest_type:
+          $ref: '#/components/schemas/ContestTypeSummary'
+        contest_effect:
+          $ref: '#/components/schemas/ContestEffectSummary'
+        damage_class:
+          $ref: '#/components/schemas/MoveDamageClassSummary'
+        effect_entries:
+          title: Effect entries
+          type: string
+          readOnly: true
+        effect_changes:
+          title: Effect changes
+          type: string
+          readOnly: true
+        generation:
+          $ref: '#/components/schemas/GenerationSummary'
+        meta:
+          $ref: '#/components/schemas/MoveMeta'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoveName'
+          readOnly: true
+        past_values:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoveChange'
+          readOnly: true
+        stat_changes:
+          title: Stat changes
+          type: string
+          readOnly: true
+        super_contest_effect:
+          $ref: '#/components/schemas/SuperContestEffectSummary'
+        target:
+          $ref: '#/components/schemas/MoveTargetSummary'
+        type:
+          $ref: '#/components/schemas/TypeSummary'
+        machines:
+          title: Machines
+          type: string
+          readOnly: true
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoveFlavorText'
+          readOnly: true
+    NatureSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    NatureBattleStylePreference:
+      required:
+        - low_hp_preference
+        - high_hp_preference
+        - move_battle_style
+      type: object
+      properties:
+        low_hp_preference:
+          title: Low hp preference
+          type: integer
+        high_hp_preference:
+          title: High hp preference
+          type: integer
+        move_battle_style:
+          $ref: '#/components/schemas/MoveBattleStyleSummary'
+    NatureName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    NatureDetail:
+      required:
+        - name
+        - decreased_stat
+        - increased_stat
+        - likes_flavor
+        - hates_flavor
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        decreased_stat:
+          $ref: '#/components/schemas/StatSummary'
+        increased_stat:
+          $ref: '#/components/schemas/StatSummary'
+        likes_flavor:
+          $ref: '#/components/schemas/BerryFlavorSummary'
+        hates_flavor:
+          $ref: '#/components/schemas/BerryFlavorSummary'
+        berries:
+          type: array
+          items:
+            $ref: '#/components/schemas/BerrySummary'
+          readOnly: true
+        pokeathlon_stat_changes:
+          title: Pokeathlon stat changes
+          type: string
+          readOnly: true
+        move_battle_style_preferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/NatureBattleStylePreference'
+          readOnly: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/NatureName'
+          readOnly: true
+    PalParkAreaSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    PalParkAreaName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    PalParkAreaDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/PalParkAreaName'
+          readOnly: true
+        pokemon_encounters:
+          title: Pokemon encounters
+          type: string
+          readOnly: true
+    PokeathlonStatSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    PokeathlonStatName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    PokeathlonStatDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        affecting_natures:
+          title: Affecting natures
+          type: string
+          readOnly: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/PokeathlonStatName'
+          readOnly: true
+    PokedexSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    PokedexDescription:
+      required:
+        - language
+      type: object
+      properties:
+        description:
+          title: Description
+          type: string
+          maxLength: 1000
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    PokedexName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    PokedexDetail:
+      required:
+        - name
+        - region
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        is_main_series:
+          title: Is main series
+          type: boolean
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/PokedexDescription'
+          readOnly: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/PokedexName'
+          readOnly: true
+        pokemon_entries:
+          title: Pokemon entries
+          type: string
+          readOnly: true
+        region:
+          $ref: '#/components/schemas/RegionSummary'
+        version_groups:
+          title: Version groups
+          type: string
+          readOnly: true
+    PokemonColorSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    PokemonColorName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    PokemonColorDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/PokemonColorName'
+          readOnly: true
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/PokemonSpeciesSummary'
+          readOnly: true
+    PokemonFormSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    PokemonSummary:
+      title: Pokemon
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    PokemonFormDetail:
+      required:
+        - name
+        - form_name
+        - pokemon
+        - version_group
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        order:
+          title: Order
+          type: integer
+          nullable: true
+        form_order:
+          title: Form order
+          type: integer
+          nullable: true
+        is_default:
+          title: Is default
+          type: boolean
+        is_battle_only:
+          title: Is battle only
+          type: boolean
+        is_mega:
+          title: Is mega
+          type: boolean
+        form_name:
+          title: Form name
+          type: string
+          maxLength: 30
+          minLength: 1
+        pokemon:
+          $ref: '#/components/schemas/PokemonSummary'
+        sprites:
+          title: Sprites
+          type: string
+          readOnly: true
+        version_group:
+          $ref: '#/components/schemas/VersionGroupSummary'
+        form_names:
+          title: Form names
+          type: string
+          readOnly: true
+        names:
+          title: Names
+          type: string
+          readOnly: true
+    PokemonHabitatSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    PokemonHabitatName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    PokemonHabitatDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/PokemonHabitatName'
+          readOnly: true
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/PokemonSpeciesSummary'
+          readOnly: true
+    PokemonShapeSummary:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    PokemonShapeDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        awesome_names:
+          title: Awesome names
+          type: string
+          readOnly: true
+        names:
+          title: Names
+          type: string
+          readOnly: true
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/PokemonSpeciesSummary'
+          readOnly: true
+    PokemonDexEntry:
+      required:
+        - entry_number
+        - pokedex
+      type: object
+      properties:
+        entry_number:
+          title: Entry number
+          type: integer
+        pokedex:
+          $ref: '#/components/schemas/PokedexSummary'
+    PokemonSpeciesDescription:
+      required:
+        - language
+      type: object
+      properties:
+        description:
+          title: Description
+          type: string
+          maxLength: 1000
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    VersionSummary:
+      title: Version
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    PokemonSpeciesFlavorText:
+      required:
+        - flavor_text
+        - language
+        - version
+      type: object
+      properties:
+        flavor_text:
+          title: Flavor text
+          type: string
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+        version:
+          $ref: '#/components/schemas/VersionSummary'
+    PokemonSpeciesDetail:
+      required:
+        - name
+        - gender_rate
+        - capture_rate
+        - base_happiness
+        - hatch_counter
+        - growth_rate
+        - color
+        - shape
+        - evolves_from_species
+        - evolution_chain
+        - habitat
+        - generation
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        order:
+          title: Order
+          type: integer
+          nullable: true
+        gender_rate:
+          title: Gender rate
+          type: integer
+        capture_rate:
+          title: Capture rate
+          type: integer
+        base_happiness:
+          title: Base happiness
+          type: integer
+        is_baby:
+          title: Is baby
+          type: boolean
+        hatch_counter:
+          title: Hatch counter
+          type: integer
+        has_gender_differences:
+          title: Has gender differences
+          type: boolean
+        forms_switchable:
+          title: Forms switchable
+          type: boolean
+        growth_rate:
+          $ref: '#/components/schemas/GrowthRateSummary'
+        pokedex_numbers:
+          type: array
+          items:
+            $ref: '#/components/schemas/PokemonDexEntry'
+          readOnly: true
+        egg_groups:
+          title: Egg groups
+          type: string
+          readOnly: true
+        color:
+          $ref: '#/components/schemas/PokemonColorSummary'
+        shape:
+          $ref: '#/components/schemas/PokemonShapeSummary'
+        evolves_from_species:
+          $ref: '#/components/schemas/PokemonSpeciesSummary'
+        evolution_chain:
+          $ref: '#/components/schemas/EvolutionChainSummary'
+        habitat:
+          $ref: '#/components/schemas/PokemonHabitatSummary'
+        generation:
+          $ref: '#/components/schemas/GenerationSummary'
+        names:
+          title: Names
+          type: string
+          readOnly: true
+        pal_park_encounters:
+          title: Pal park encounters
+          type: string
+          readOnly: true
+        form_descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/PokemonSpeciesDescription'
+          readOnly: true
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PokemonSpeciesFlavorText'
+          readOnly: true
+        genera:
+          title: Genera
+          type: string
+          readOnly: true
+        varieties:
+          title: Varieties
+          type: string
+          readOnly: true
+    PokemonGameIndex:
+      required:
+        - game_index
+        - version
+      type: object
+      properties:
+        game_index:
+          title: Game index
+          type: integer
+        version:
+          $ref: '#/components/schemas/VersionSummary'
+    PokemonStat:
+      required:
+        - base_stat
+        - effort
+        - stat
+      type: object
+      properties:
+        base_stat:
+          title: Base stat
+          type: integer
+        effort:
+          title: Effort
+          type: integer
+        stat:
+          $ref: '#/components/schemas/StatSummary'
+    PokemonDetail:
+      required:
+        - name
+        - base_experience
+        - height
+        - weight
+        - species
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        base_experience:
+          title: Base experience
+          type: integer
+        height:
+          title: Height
+          type: integer
+        is_default:
+          title: Is default
+          type: boolean
+        order:
+          title: Order
+          type: integer
+          nullable: true
+        weight:
+          title: Weight
+          type: integer
+        abilities:
+          title: Abilities
+          type: string
+          readOnly: true
+        forms:
+          type: array
+          items:
+            $ref: '#/components/schemas/PokemonFormSummary'
+          readOnly: true
+        game_indices:
+          type: array
+          items:
+            $ref: '#/components/schemas/PokemonGameIndex'
+          readOnly: true
+        held_items:
+          title: Held items
+          type: string
+          readOnly: true
+        location_area_encounters:
+          title: Location area encounters
+          type: string
+          readOnly: true
+        moves:
+          title: Moves
+          type: string
+          readOnly: true
+        species:
+          $ref: '#/components/schemas/PokemonSpeciesSummary'
+        sprites:
+          title: Sprites
+          type: string
+          readOnly: true
+        stats:
+          type: array
+          items:
+            $ref: '#/components/schemas/PokemonStat'
+          readOnly: true
+        types:
+          title: Types
+          type: string
+          readOnly: true
+    RegionName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    RegionDetail:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocationSummary'
+          readOnly: true
+        main_generation:
+          $ref: '#/components/schemas/GenerationSummary'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/RegionName'
+          readOnly: true
+        pokedexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/PokedexSummary'
+          readOnly: true
+        version_groups:
+          title: Version groups
+          type: string
+          readOnly: true
+    StatName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    StatDetail:
+      required:
+        - name
+        - game_index
+        - move_damage_class
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        game_index:
+          title: Game index
+          type: integer
+        is_battle_only:
+          title: Is battle only
+          type: boolean
+        affecting_moves:
+          title: Affecting moves
+          type: string
+          readOnly: true
+        affecting_natures:
+          title: Affecting natures
+          type: string
+          readOnly: true
+        characteristics:
+          type: array
+          items:
+            $ref: '#/components/schemas/CharacteristicSummary'
+          readOnly: true
+        move_damage_class:
+          $ref: '#/components/schemas/MoveDamageClassSummary'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/StatName'
+          readOnly: true
+    SuperContestEffectFlavorText:
+      required:
+        - flavor_text
+        - language
+      type: object
+      properties:
+        flavor_text:
+          title: Flavor text
+          type: string
+          maxLength: 500
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    SuperContestEffectDetail:
+      required:
+        - appeal
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        appeal:
+          title: Appeal
+          type: integer
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/SuperContestEffectFlavorText'
+          readOnly: true
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoveSummary'
+          readOnly: true
+    TypeGameIndex:
+      required:
+        - game_index
+        - generation
+      type: object
+      properties:
+        game_index:
+          title: Game index
+          type: integer
+        generation:
+          $ref: '#/components/schemas/GenerationSummary'
+    TypeDetail:
+      required:
+        - name
+        - generation
+        - move_damage_class
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        damage_relations:
+          title: Damage relations
+          type: string
+          readOnly: true
+        game_indices:
+          type: array
+          items:
+            $ref: '#/components/schemas/TypeGameIndex'
+          readOnly: true
+        generation:
+          $ref: '#/components/schemas/GenerationSummary'
+        move_damage_class:
+          $ref: '#/components/schemas/MoveDamageClassSummary'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/AbilityName'
+          readOnly: true
+        pokemon:
+          title: Pokemon
+          type: string
+          readOnly: true
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/MoveSummary'
+          readOnly: true
+    VersionGroupDetail:
+      required:
+        - name
+        - generation
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        order:
+          title: Order
+          type: integer
+          nullable: true
+        generation:
+          $ref: '#/components/schemas/GenerationSummary'
+        move_learn_methods:
+          title: Move learn methods
+          type: string
+          readOnly: true
+        pokedexes:
+          title: Pokedexes
+          type: string
+          readOnly: true
+        regions:
+          title: Regions
+          type: string
+          readOnly: true
+        versions:
+          type: array
+          items:
+            $ref: '#/components/schemas/VersionSummary'
+          readOnly: true
+    VersionName:
+      required:
+        - name
+        - language
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        language:
+          $ref: '#/components/schemas/LanguageSummary'
+    VersionDetail:
+      required:
+        - name
+        - version_group
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 100
+          minLength: 1
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/VersionName'
+          readOnly: true
+        version_group:
+          $ref: '#/components/schemas/VersionGroupSummary'

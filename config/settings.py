@@ -92,6 +92,7 @@ INSTALLED_APPS = (
     "django.contrib.sites",
     "django.contrib.admin",
     "django.contrib.humanize",
+    "drf_yasg",
     "corsheaders",
     "rest_framework",
     "cachalot",

@@ -1,0 +1,6070 @@
+swagger: '2.0'
+info:
+  title: Snippets API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+host: localhost:8000
+schemes:
+  - http
+basePath: /api/v2
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  Basic:
+    type: basic
+security:
+  - Basic: []
+paths:
+  /ability/:
+    get:
+      operationId: ability_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/AbilitySummary'
+      tags:
+        - ability
+    parameters: []
+  /ability/{id}/:
+    get:
+      operationId: ability_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AbilityDetail'
+      tags:
+        - ability
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this ability.
+        required: true
+        type: integer
+  /berry-firmness/:
+    get:
+      operationId: berry-firmness_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/BerryFirmnessSummary'
+      tags:
+        - berry-firmness
+    parameters: []
+  /berry-firmness/{id}/:
+    get:
+      operationId: berry-firmness_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/BerryFirmnessDetail'
+      tags:
+        - berry-firmness
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this berry firmness.
+        required: true
+        type: integer
+  /berry-flavor/:
+    get:
+      operationId: berry-flavor_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/BerryFlavorSummary'
+      tags:
+        - berry-flavor
+    parameters: []
+  /berry-flavor/{id}/:
+    get:
+      operationId: berry-flavor_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/BerryFlavorDetail'
+      tags:
+        - berry-flavor
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this berry flavor.
+        required: true
+        type: integer
+  /berry/:
+    get:
+      operationId: berry_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/BerrySummary'
+      tags:
+        - berry
+    parameters: []
+  /berry/{id}/:
+    get:
+      operationId: berry_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/BerryDetail'
+      tags:
+        - berry
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this berry.
+        required: true
+        type: integer
+  /characteristic/:
+    get:
+      operationId: characteristic_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/CharacteristicSummary'
+      tags:
+        - characteristic
+    parameters: []
+  /characteristic/{id}/:
+    get:
+      operationId: characteristic_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/CharacteristicDetail'
+      tags:
+        - characteristic
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this characteristic.
+        required: true
+        type: integer
+  /contest-effect/:
+    get:
+      operationId: contest-effect_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ContestEffectSummary'
+      tags:
+        - contest-effect
+    parameters: []
+  /contest-effect/{id}/:
+    get:
+      operationId: contest-effect_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ContestEffectDetail'
+      tags:
+        - contest-effect
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this contest effect.
+        required: true
+        type: integer
+  /contest-type/:
+    get:
+      operationId: contest-type_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ContestTypeSummary'
+      tags:
+        - contest-type
+    parameters: []
+  /contest-type/{id}/:
+    get:
+      operationId: contest-type_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ContestTypeDetail'
+      tags:
+        - contest-type
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this contest type.
+        required: true
+        type: integer
+  /egg-group/:
+    get:
+      operationId: egg-group_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/EggGroupSummary'
+      tags:
+        - egg-group
+    parameters: []
+  /egg-group/{id}/:
+    get:
+      operationId: egg-group_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/EggGroupDetail'
+      tags:
+        - egg-group
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this egg group.
+        required: true
+        type: integer
+  /encounter-condition-value/:
+    get:
+      operationId: encounter-condition-value_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/EncounterConditionValueSummary'
+      tags:
+        - encounter-condition-value
+    parameters: []
+  /encounter-condition-value/{id}/:
+    get:
+      operationId: encounter-condition-value_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/EncounterConditionValueDetail'
+      tags:
+        - encounter-condition-value
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this encounter condition value.
+        required: true
+        type: integer
+  /encounter-condition/:
+    get:
+      operationId: encounter-condition_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/EncounterConditionSummary'
+      tags:
+        - encounter-condition
+    parameters: []
+  /encounter-condition/{id}/:
+    get:
+      operationId: encounter-condition_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/EncounterConditionDetail'
+      tags:
+        - encounter-condition
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this encounter condition.
+        required: true
+        type: integer
+  /encounter-method/:
+    get:
+      operationId: encounter-method_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/EncounterMethodSummary'
+      tags:
+        - encounter-method
+    parameters: []
+  /encounter-method/{id}/:
+    get:
+      operationId: encounter-method_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/EncounterMethodDetail'
+      tags:
+        - encounter-method
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this encounter method.
+        required: true
+        type: integer
+  /evolution-chain/:
+    get:
+      operationId: evolution-chain_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/EvolutionChainSummary'
+      tags:
+        - evolution-chain
+    parameters: []
+  /evolution-chain/{id}/:
+    get:
+      operationId: evolution-chain_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/EvolutionChainDetail'
+      tags:
+        - evolution-chain
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this evolution chain.
+        required: true
+        type: integer
+  /evolution-trigger/:
+    get:
+      operationId: evolution-trigger_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/EvolutionTriggerSummary'
+      tags:
+        - evolution-trigger
+    parameters: []
+  /evolution-trigger/{id}/:
+    get:
+      operationId: evolution-trigger_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/EvolutionTriggerDetail'
+      tags:
+        - evolution-trigger
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this evolution trigger.
+        required: true
+        type: integer
+  /gender/:
+    get:
+      operationId: gender_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/GenderSummary'
+      tags:
+        - gender
+    parameters: []
+  /gender/{id}/:
+    get:
+      operationId: gender_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/GenderDetail'
+      tags:
+        - gender
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this gender.
+        required: true
+        type: integer
+  /generation/:
+    get:
+      operationId: generation_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/GenerationSummary'
+      tags:
+        - generation
+    parameters: []
+  /generation/{id}/:
+    get:
+      operationId: generation_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/GenerationDetail'
+      tags:
+        - generation
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this generation.
+        required: true
+        type: integer
+  /growth-rate/:
+    get:
+      operationId: growth-rate_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/GrowthRateSummary'
+      tags:
+        - growth-rate
+    parameters: []
+  /growth-rate/{id}/:
+    get:
+      operationId: growth-rate_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/GrowthRateDetail'
+      tags:
+        - growth-rate
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this growth rate.
+        required: true
+        type: integer
+  /item-attribute/:
+    get:
+      operationId: item-attribute_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ItemAttributeSummary'
+      tags:
+        - item-attribute
+    parameters: []
+  /item-attribute/{id}/:
+    get:
+      operationId: item-attribute_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ItemAttributeDetail'
+      tags:
+        - item-attribute
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this item attribute.
+        required: true
+        type: integer
+  /item-category/:
+    get:
+      operationId: item-category_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ItemCategorySummary'
+      tags:
+        - item-category
+    parameters: []
+  /item-category/{id}/:
+    get:
+      operationId: item-category_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ItemCategoryDetail'
+      tags:
+        - item-category
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this item category.
+        required: true
+        type: integer
+  /item-fling-effect/:
+    get:
+      operationId: item-fling-effect_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ItemFlingEffectSummary'
+      tags:
+        - item-fling-effect
+    parameters: []
+  /item-fling-effect/{id}/:
+    get:
+      operationId: item-fling-effect_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ItemFlingEffectDetail'
+      tags:
+        - item-fling-effect
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this item fling effect.
+        required: true
+        type: integer
+  /item-pocket/:
+    get:
+      operationId: item-pocket_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ItemPocketSummary'
+      tags:
+        - item-pocket
+    parameters: []
+  /item-pocket/{id}/:
+    get:
+      operationId: item-pocket_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ItemPocketDetail'
+      tags:
+        - item-pocket
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this item pocket.
+        required: true
+        type: integer
+  /item/:
+    get:
+      operationId: item_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ItemSummary'
+      tags:
+        - item
+    parameters: []
+  /item/{id}/:
+    get:
+      operationId: item_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ItemDetail'
+      tags:
+        - item
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this item.
+        required: true
+        type: integer
+  /language/:
+    get:
+      operationId: language_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/LanguageSummary'
+      tags:
+        - language
+    parameters: []
+  /language/{id}/:
+    get:
+      operationId: language_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/LanguageDetail'
+      tags:
+        - language
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this language.
+        required: true
+        type: integer
+  /location-area/:
+    get:
+      operationId: location-area_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/LocationAreaSummary'
+      tags:
+        - location-area
+    parameters: []
+  /location-area/{id}/:
+    get:
+      operationId: location-area_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/LocationAreaDetail'
+      tags:
+        - location-area
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this location area.
+        required: true
+        type: integer
+  /location/:
+    get:
+      operationId: location_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/LocationSummary'
+      tags:
+        - location
+    parameters: []
+  /location/{id}/:
+    get:
+      operationId: location_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/LocationDetail'
+      tags:
+        - location
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this location.
+        required: true
+        type: integer
+  /machine/:
+    get:
+      operationId: machine_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/MachineSummary'
+      tags:
+        - machine
+    parameters: []
+  /machine/{id}/:
+    get:
+      operationId: machine_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/MachineDetail'
+      tags:
+        - machine
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this machine.
+        required: true
+        type: integer
+  /move-ailment/:
+    get:
+      operationId: move-ailment_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/MoveMetaAilmentSummary'
+      tags:
+        - move-ailment
+    parameters: []
+  /move-ailment/{id}/:
+    get:
+      operationId: move-ailment_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/MoveMetaAilmentDetail'
+      tags:
+        - move-ailment
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this move meta ailment.
+        required: true
+        type: integer
+  /move-battle-style/:
+    get:
+      operationId: move-battle-style_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/MoveBattleStyleSummary'
+      tags:
+        - move-battle-style
+    parameters: []
+  /move-battle-style/{id}/:
+    get:
+      operationId: move-battle-style_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/MoveBattleStyleDetail'
+      tags:
+        - move-battle-style
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this move battle style.
+        required: true
+        type: integer
+  /move-category/:
+    get:
+      operationId: move-category_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/MoveMetaCategorySummary'
+      tags:
+        - move-category
+    parameters: []
+  /move-category/{id}/:
+    get:
+      operationId: move-category_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/MoveMetaCategoryDetail'
+      tags:
+        - move-category
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this move meta category.
+        required: true
+        type: integer
+  /move-damage-class/:
+    get:
+      operationId: move-damage-class_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/MoveDamageClassSummary'
+      tags:
+        - move-damage-class
+    parameters: []
+  /move-damage-class/{id}/:
+    get:
+      operationId: move-damage-class_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/MoveDamageClassDetail'
+      tags:
+        - move-damage-class
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this move damage class.
+        required: true
+        type: integer
+  /move-learn-method/:
+    get:
+      operationId: move-learn-method_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/MoveLearnMethodSummary'
+      tags:
+        - move-learn-method
+    parameters: []
+  /move-learn-method/{id}/:
+    get:
+      operationId: move-learn-method_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/MoveLearnMethodDetail'
+      tags:
+        - move-learn-method
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this move learn method.
+        required: true
+        type: integer
+  /move-target/:
+    get:
+      operationId: move-target_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/MoveTargetSummary'
+      tags:
+        - move-target
+    parameters: []
+  /move-target/{id}/:
+    get:
+      operationId: move-target_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/MoveTargetDetail'
+      tags:
+        - move-target
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this move target.
+        required: true
+        type: integer
+  /move/:
+    get:
+      operationId: move_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/MoveSummary'
+      tags:
+        - move
+    parameters: []
+  /move/{id}/:
+    get:
+      operationId: move_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/MoveDetail'
+      tags:
+        - move
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this move.
+        required: true
+        type: integer
+  /nature/:
+    get:
+      operationId: nature_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/NatureSummary'
+      tags:
+        - nature
+    parameters: []
+  /nature/{id}/:
+    get:
+      operationId: nature_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/NatureDetail'
+      tags:
+        - nature
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this nature.
+        required: true
+        type: integer
+  /pal-park-area/:
+    get:
+      operationId: pal-park-area_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/PalParkAreaSummary'
+      tags:
+        - pal-park-area
+    parameters: []
+  /pal-park-area/{id}/:
+    get:
+      operationId: pal-park-area_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/PalParkAreaDetail'
+      tags:
+        - pal-park-area
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this pal park area.
+        required: true
+        type: integer
+  /pokeathlon-stat/:
+    get:
+      operationId: pokeathlon-stat_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/PokeathlonStatSummary'
+      tags:
+        - pokeathlon-stat
+    parameters: []
+  /pokeathlon-stat/{id}/:
+    get:
+      operationId: pokeathlon-stat_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/PokeathlonStatDetail'
+      tags:
+        - pokeathlon-stat
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this pokeathlon stat.
+        required: true
+        type: integer
+  /pokedex/:
+    get:
+      operationId: pokedex_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/PokedexSummary'
+      tags:
+        - pokedex
+    parameters: []
+  /pokedex/{id}/:
+    get:
+      operationId: pokedex_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/PokedexDetail'
+      tags:
+        - pokedex
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this pokedex.
+        required: true
+        type: integer
+  /pokemon-color/:
+    get:
+      operationId: pokemon-color_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/PokemonColorSummary'
+      tags:
+        - pokemon-color
+    parameters: []
+  /pokemon-color/{id}/:
+    get:
+      operationId: pokemon-color_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/PokemonColorDetail'
+      tags:
+        - pokemon-color
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this pokemon color.
+        required: true
+        type: integer
+  /pokemon-form/:
+    get:
+      operationId: pokemon-form_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/PokemonFormSummary'
+      tags:
+        - pokemon-form
+    parameters: []
+  /pokemon-form/{id}/:
+    get:
+      operationId: pokemon-form_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/PokemonFormDetail'
+      tags:
+        - pokemon-form
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this pokemon form.
+        required: true
+        type: integer
+  /pokemon-habitat/:
+    get:
+      operationId: pokemon-habitat_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/PokemonHabitatSummary'
+      tags:
+        - pokemon-habitat
+    parameters: []
+  /pokemon-habitat/{id}/:
+    get:
+      operationId: pokemon-habitat_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/PokemonHabitatDetail'
+      tags:
+        - pokemon-habitat
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this pokemon habitat.
+        required: true
+        type: integer
+  /pokemon-shape/:
+    get:
+      operationId: pokemon-shape_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/PokemonShapeSummary'
+      tags:
+        - pokemon-shape
+    parameters: []
+  /pokemon-shape/{id}/:
+    get:
+      operationId: pokemon-shape_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/PokemonShapeDetail'
+      tags:
+        - pokemon-shape
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this pokemon shape.
+        required: true
+        type: integer
+  /pokemon-species/:
+    get:
+      operationId: pokemon-species_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/PokemonSpeciesSummary'
+      tags:
+        - pokemon-species
+    parameters: []
+  /pokemon-species/{id}/:
+    get:
+      operationId: pokemon-species_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/PokemonSpeciesDetail'
+      tags:
+        - pokemon-species
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this pokemon species.
+        required: true
+        type: integer
+  /pokemon/:
+    get:
+      operationId: pokemon_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/PokemonSummary'
+      tags:
+        - pokemon
+    parameters: []
+  /pokemon/{id}/:
+    get:
+      operationId: pokemon_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/PokemonDetail'
+      tags:
+        - pokemon
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this pokemon.
+        required: true
+        type: integer
+  /pokemon/{pokemon_id}/encounters:
+    get:
+      operationId: pokemon_encounters_list
+      description: Handles Pokemon Encounters as a sub-resource.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - pokemon
+    parameters:
+      - name: pokemon_id
+        in: path
+        required: true
+        type: string
+  /region/:
+    get:
+      operationId: region_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/RegionSummary'
+      tags:
+        - region
+    parameters: []
+  /region/{id}/:
+    get:
+      operationId: region_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/RegionDetail'
+      tags:
+        - region
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this region.
+        required: true
+        type: integer
+  /stat/:
+    get:
+      operationId: stat_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/StatSummary'
+      tags:
+        - stat
+    parameters: []
+  /stat/{id}/:
+    get:
+      operationId: stat_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/StatDetail'
+      tags:
+        - stat
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this stat.
+        required: true
+        type: integer
+  /super-contest-effect/:
+    get:
+      operationId: super-contest-effect_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/SuperContestEffectSummary'
+      tags:
+        - super-contest-effect
+    parameters: []
+  /super-contest-effect/{id}/:
+    get:
+      operationId: super-contest-effect_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/SuperContestEffectDetail'
+      tags:
+        - super-contest-effect
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this super contest effect.
+        required: true
+        type: integer
+  /type/:
+    get:
+      operationId: type_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/TypeSummary'
+      tags:
+        - type
+    parameters: []
+  /type/{id}/:
+    get:
+      operationId: type_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/TypeDetail'
+      tags:
+        - type
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this type.
+        required: true
+        type: integer
+  /version-group/:
+    get:
+      operationId: version-group_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/VersionGroupSummary'
+      tags:
+        - version-group
+    parameters: []
+  /version-group/{id}/:
+    get:
+      operationId: version-group_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/VersionGroupDetail'
+      tags:
+        - version-group
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this version group.
+        required: true
+        type: integer
+  /version/:
+    get:
+      operationId: version_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/VersionSummary'
+      tags:
+        - version
+    parameters: []
+  /version/{id}/:
+    get:
+      operationId: version_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/VersionDetail'
+      tags:
+        - version
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this version.
+        required: true
+        type: integer
+definitions:
+  AbilitySummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  GenerationSummary:
+    title: Generation
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  LanguageSummary:
+    title: Language
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  AbilityName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  AbilityEffectText:
+    required:
+      - effect
+      - short_effect
+      - language
+    type: object
+    properties:
+      effect:
+        title: Effect
+        type: string
+        maxLength: 6000
+        minLength: 1
+      short_effect:
+        title: Short effect
+        type: string
+        maxLength: 300
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  VersionGroupSummary:
+    title: Version group
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  AbilityChangeEffectText:
+    required:
+      - effect
+      - language
+    type: object
+    properties:
+      effect:
+        title: Effect
+        type: string
+        maxLength: 6000
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  AbilityChange:
+    required:
+      - version_group
+    type: object
+    properties:
+      version_group:
+        $ref: '#/definitions/VersionGroupSummary'
+      effect_entries:
+        type: array
+        items:
+          $ref: '#/definitions/AbilityChangeEffectText'
+        readOnly: true
+  AbilityFlavorText:
+    required:
+      - flavor_text
+      - language
+      - version_group
+    type: object
+    properties:
+      flavor_text:
+        title: Flavor text
+        type: string
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+      version_group:
+        $ref: '#/definitions/VersionGroupSummary'
+  AbilityDetail:
+    required:
+      - name
+      - generation
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      is_main_series:
+        title: Is main series
+        type: boolean
+      generation:
+        $ref: '#/definitions/GenerationSummary'
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/AbilityName'
+        readOnly: true
+      effect_entries:
+        type: array
+        items:
+          $ref: '#/definitions/AbilityEffectText'
+        readOnly: true
+      effect_changes:
+        type: array
+        items:
+          $ref: '#/definitions/AbilityChange'
+        readOnly: true
+      flavor_text_entries:
+        type: array
+        items:
+          $ref: '#/definitions/AbilityFlavorText'
+        readOnly: true
+      pokemon:
+        title: Pokemon
+        type: string
+        readOnly: true
+  BerryFirmnessSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  BerrySummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  BerryFirmnessName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  BerryFirmnessDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      berries:
+        type: array
+        items:
+          $ref: '#/definitions/BerrySummary'
+        readOnly: true
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/BerryFirmnessName'
+        readOnly: true
+  BerryFlavorSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  ContestTypeSummary:
+    title: Contest type
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  BerryFlavorName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  BerryFlavorDetail:
+    required:
+      - name
+      - contest_type
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      berries:
+        title: Berries
+        type: string
+        readOnly: true
+      contest_type:
+        $ref: '#/definitions/ContestTypeSummary'
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/BerryFlavorName'
+        readOnly: true
+  ItemSummary:
+    title: Item
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  TypeSummary:
+    title: Natural gift type
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  BerryDetail:
+    required:
+      - name
+      - growth_time
+      - max_harvest
+      - natural_gift_power
+      - size
+      - smoothness
+      - soil_dryness
+      - firmness
+      - item
+      - natural_gift_type
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      growth_time:
+        title: Growth time
+        type: integer
+      max_harvest:
+        title: Max harvest
+        type: integer
+      natural_gift_power:
+        title: Natural gift power
+        type: integer
+      size:
+        title: Size
+        type: integer
+      smoothness:
+        title: Smoothness
+        type: integer
+      soil_dryness:
+        title: Soil dryness
+        type: integer
+      firmness:
+        $ref: '#/definitions/BerryFirmnessSummary'
+      flavors:
+        title: Flavors
+        type: string
+        readOnly: true
+      item:
+        $ref: '#/definitions/ItemSummary'
+      natural_gift_type:
+        $ref: '#/definitions/TypeSummary'
+  CharacteristicSummary:
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  StatSummary:
+    title: Highest stat
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  CharacteristicDescription:
+    required:
+      - language
+    type: object
+    properties:
+      description:
+        title: Description
+        type: string
+        maxLength: 1000
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  CharacteristicDetail:
+    required:
+      - gene_modulo
+      - highest_stat
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      gene_modulo:
+        title: Gene modulo
+        type: integer
+      possible_values:
+        title: Possible values
+        type: string
+        readOnly: true
+      highest_stat:
+        $ref: '#/definitions/StatSummary'
+      descriptions:
+        type: array
+        items:
+          $ref: '#/definitions/CharacteristicDescription'
+        readOnly: true
+  ContestEffectSummary:
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  ContestEffectEffectText:
+    required:
+      - effect
+      - language
+    type: object
+    properties:
+      effect:
+        title: Effect
+        type: string
+        maxLength: 6000
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  ContestEffectFlavorText:
+    required:
+      - flavor_text
+      - language
+    type: object
+    properties:
+      flavor_text:
+        title: Flavor text
+        type: string
+        maxLength: 500
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  ContestEffectDetail:
+    required:
+      - appeal
+      - jam
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      appeal:
+        title: Appeal
+        type: integer
+      jam:
+        title: Jam
+        type: integer
+      effect_entries:
+        type: array
+        items:
+          $ref: '#/definitions/ContestEffectEffectText'
+        readOnly: true
+      flavor_text_entries:
+        type: array
+        items:
+          $ref: '#/definitions/ContestEffectFlavorText'
+        readOnly: true
+  ContestTypeName:
+    required:
+      - name
+      - color
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      color:
+        title: Color
+        type: string
+        maxLength: 10
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  ContestTypeDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      berry_flavor:
+        $ref: '#/definitions/BerryFlavorSummary'
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/ContestTypeName'
+        readOnly: true
+  EggGroupSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  EggGroupName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  EggGroupDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/EggGroupName'
+        readOnly: true
+      pokemon_species:
+        title: Pokemon species
+        type: string
+        readOnly: true
+  EncounterConditionValueSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  EncounterConditionSummary:
+    title: Condition
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  EncounterConditionValueName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  EncounterConditionValueDetail:
+    required:
+      - name
+      - condition
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      condition:
+        $ref: '#/definitions/EncounterConditionSummary'
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/EncounterConditionValueName'
+        readOnly: true
+  EncounterConditionName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  EncounterConditionDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      values:
+        type: array
+        items:
+          $ref: '#/definitions/EncounterConditionValueSummary'
+        readOnly: true
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/EncounterConditionName'
+        readOnly: true
+  EncounterMethodSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  EncounterMethodName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  EncounterMethodDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      order:
+        title: Order
+        type: integer
+        x-nullable: true
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/EncounterMethodName'
+        readOnly: true
+  EvolutionChainSummary:
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  EvolutionChainDetail:
+    required:
+      - baby_trigger_item
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      baby_trigger_item:
+        $ref: '#/definitions/ItemSummary'
+      chain:
+        title: Chain
+        type: string
+        readOnly: true
+  EvolutionTriggerSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  EvolutionTriggerName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  EvolutionTriggerDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/EvolutionTriggerName'
+        readOnly: true
+      pokemon_species:
+        title: Pokemon species
+        type: string
+        readOnly: true
+  GenderSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  GenderDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      pokemon_species_details:
+        title: Pokemon species details
+        type: string
+        readOnly: true
+      required_for_evolution:
+        title: Required for evolution
+        type: string
+        readOnly: true
+  RegionSummary:
+    title: Main region
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  MoveSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  GenerationName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  PokemonSpeciesSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  GenerationDetail:
+    required:
+      - name
+      - main_region
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      abilities:
+        type: array
+        items:
+          $ref: '#/definitions/AbilitySummary'
+        readOnly: true
+      main_region:
+        $ref: '#/definitions/RegionSummary'
+      moves:
+        type: array
+        items:
+          $ref: '#/definitions/MoveSummary'
+        readOnly: true
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/GenerationName'
+        readOnly: true
+      pokemon_species:
+        type: array
+        items:
+          $ref: '#/definitions/PokemonSpeciesSummary'
+        readOnly: true
+      types:
+        type: array
+        items:
+          $ref: '#/definitions/TypeSummary'
+        readOnly: true
+      version_groups:
+        type: array
+        items:
+          $ref: '#/definitions/VersionGroupSummary'
+        readOnly: true
+  GrowthRateSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  GrowthRateDescription:
+    required:
+      - language
+    type: object
+    properties:
+      description:
+        title: Description
+        type: string
+        maxLength: 1000
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  Experience:
+    required:
+      - level
+      - experience
+    type: object
+    properties:
+      level:
+        title: Level
+        type: integer
+      experience:
+        title: Experience
+        type: integer
+  GrowthRateDetail:
+    required:
+      - name
+      - formula
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      formula:
+        title: Formula
+        type: string
+        maxLength: 500
+        minLength: 1
+      descriptions:
+        type: array
+        items:
+          $ref: '#/definitions/GrowthRateDescription'
+        readOnly: true
+      levels:
+        type: array
+        items:
+          $ref: '#/definitions/Experience'
+        readOnly: true
+      pokemon_species:
+        type: array
+        items:
+          $ref: '#/definitions/PokemonSpeciesSummary'
+        readOnly: true
+  ItemAttributeSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  ItemAttributeDescription:
+    required:
+      - language
+    type: object
+    properties:
+      description:
+        title: Description
+        type: string
+        maxLength: 1000
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  ItemAttributeName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  ItemAttributeDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      descriptions:
+        type: array
+        items:
+          $ref: '#/definitions/ItemAttributeDescription'
+        readOnly: true
+      items:
+        title: Items
+        type: string
+        readOnly: true
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/ItemAttributeName'
+        readOnly: true
+  ItemCategorySummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  ItemCategoryName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  ItemPocketSummary:
+    title: Pocket
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  ItemCategoryDetail:
+    required:
+      - name
+      - pocket
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/ItemSummary'
+        readOnly: true
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/ItemCategoryName'
+        readOnly: true
+      pocket:
+        $ref: '#/definitions/ItemPocketSummary'
+  ItemFlingEffectSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  ItemFlingEffectEffectText:
+    required:
+      - effect
+      - language
+    type: object
+    properties:
+      effect:
+        title: Effect
+        type: string
+        maxLength: 6000
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  ItemFlingEffectDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      effect_entries:
+        type: array
+        items:
+          $ref: '#/definitions/ItemFlingEffectEffectText'
+        readOnly: true
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/ItemSummary'
+        readOnly: true
+  ItemPocketName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  ItemPocketDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      categories:
+        type: array
+        items:
+          $ref: '#/definitions/ItemCategorySummary'
+        readOnly: true
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/ItemPocketName'
+        readOnly: true
+  ItemEffectText:
+    required:
+      - effect
+      - short_effect
+      - language
+    type: object
+    properties:
+      effect:
+        title: Effect
+        type: string
+        maxLength: 6000
+        minLength: 1
+      short_effect:
+        title: Short effect
+        type: string
+        maxLength: 300
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  ItemFlavorText:
+    required:
+      - text
+      - version_group
+      - language
+    type: object
+    properties:
+      text:
+        title: Text
+        type: string
+        minLength: 1
+      version_group:
+        $ref: '#/definitions/VersionGroupSummary'
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  ItemGameIndex:
+    required:
+      - game_index
+      - generation
+    type: object
+    properties:
+      game_index:
+        title: Game index
+        type: integer
+      generation:
+        $ref: '#/definitions/GenerationSummary'
+  ItemName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  ItemDetail:
+    required:
+      - name
+      - fling_effect
+      - category
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      cost:
+        title: Cost
+        type: integer
+        x-nullable: true
+      fling_power:
+        title: Fling power
+        type: integer
+        x-nullable: true
+      fling_effect:
+        $ref: '#/definitions/ItemFlingEffectSummary'
+      attributes:
+        title: Attributes
+        type: string
+        readOnly: true
+      category:
+        $ref: '#/definitions/ItemCategorySummary'
+      effect_entries:
+        type: array
+        items:
+          $ref: '#/definitions/ItemEffectText'
+        readOnly: true
+      flavor_text_entries:
+        type: array
+        items:
+          $ref: '#/definitions/ItemFlavorText'
+        readOnly: true
+      game_indices:
+        type: array
+        items:
+          $ref: '#/definitions/ItemGameIndex'
+        readOnly: true
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/ItemName'
+        readOnly: true
+      held_by_pokemon:
+        title: Held by pokemon
+        type: string
+        readOnly: true
+      sprites:
+        title: Sprites
+        type: string
+        readOnly: true
+      baby_trigger_for:
+        title: Baby trigger for
+        type: string
+        readOnly: true
+      machines:
+        title: Machines
+        type: string
+        readOnly: true
+  LanguageName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  LanguageDetail:
+    required:
+      - name
+      - iso639
+      - iso3166
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      official:
+        title: Official
+        type: boolean
+      iso639:
+        title: Iso639
+        type: string
+        maxLength: 10
+        minLength: 1
+      iso3166:
+        title: Iso3166
+        type: string
+        maxLength: 2
+        minLength: 1
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/LanguageName'
+        readOnly: true
+  LocationAreaSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  LocationSummary:
+    title: Location
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  LocationAreaName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  LocationAreaDetail:
+    required:
+      - name
+      - game_index
+      - location
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      game_index:
+        title: Game index
+        type: integer
+      encounter_method_rates:
+        title: Encounter method rates
+        type: string
+        readOnly: true
+      location:
+        $ref: '#/definitions/LocationSummary'
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/LocationAreaName'
+        readOnly: true
+      pokemon_encounters:
+        title: Pokemon encounters
+        type: string
+        readOnly: true
+  LocationName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  LocationGameIndex:
+    required:
+      - game_index
+      - generation
+    type: object
+    properties:
+      game_index:
+        title: Game index
+        type: integer
+      generation:
+        $ref: '#/definitions/GenerationSummary'
+  LocationDetail:
+    required:
+      - name
+      - region
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      region:
+        $ref: '#/definitions/RegionSummary'
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/LocationName'
+        readOnly: true
+      game_indices:
+        type: array
+        items:
+          $ref: '#/definitions/LocationGameIndex'
+        readOnly: true
+      areas:
+        type: array
+        items:
+          $ref: '#/definitions/LocationAreaSummary'
+        readOnly: true
+  MachineSummary:
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  MachineDetail:
+    required:
+      - item
+      - version_group
+      - move
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      item:
+        $ref: '#/definitions/ItemSummary'
+      version_group:
+        $ref: '#/definitions/VersionGroupSummary'
+      move:
+        $ref: '#/definitions/MoveSummary'
+  MoveMetaAilmentSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  MoveMetaAilmentName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  MoveMetaAilmentDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      moves:
+        title: Moves
+        type: string
+        readOnly: true
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/MoveMetaAilmentName'
+        readOnly: true
+  MoveBattleStyleSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  MoveBattleStyleName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  MoveBattleStyleDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/MoveBattleStyleName'
+        readOnly: true
+  MoveMetaCategorySummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  MoveMetaCategoryDescription:
+    required:
+      - language
+    type: object
+    properties:
+      description:
+        title: Description
+        type: string
+        maxLength: 1000
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  MoveMetaCategoryDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      descriptions:
+        type: array
+        items:
+          $ref: '#/definitions/MoveMetaCategoryDescription'
+        readOnly: true
+      moves:
+        title: Moves
+        type: string
+        readOnly: true
+  MoveDamageClassSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  MoveDamageClassDescription:
+    required:
+      - language
+    type: object
+    properties:
+      description:
+        title: Description
+        type: string
+        maxLength: 1000
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  MoveDamageClassName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  MoveDamageClassDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      descriptions:
+        type: array
+        items:
+          $ref: '#/definitions/MoveDamageClassDescription'
+        readOnly: true
+      moves:
+        type: array
+        items:
+          $ref: '#/definitions/MoveSummary'
+        readOnly: true
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/MoveDamageClassName'
+        readOnly: true
+  MoveLearnMethodSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  MoveLearnMethodName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  MoveLearnMethodDescription:
+    required:
+      - language
+    type: object
+    properties:
+      description:
+        title: Description
+        type: string
+        maxLength: 1000
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  MoveLearnMethodDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/MoveLearnMethodName'
+        readOnly: true
+      descriptions:
+        type: array
+        items:
+          $ref: '#/definitions/MoveLearnMethodDescription'
+        readOnly: true
+      version_groups:
+        title: Version groups
+        type: string
+        readOnly: true
+  MoveTargetSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  MoveTargetDescription:
+    required:
+      - language
+    type: object
+    properties:
+      description:
+        title: Description
+        type: string
+        maxLength: 1000
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  MoveTargetName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  MoveTargetDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      descriptions:
+        type: array
+        items:
+          $ref: '#/definitions/MoveTargetDescription'
+        readOnly: true
+      moves:
+        type: array
+        items:
+          $ref: '#/definitions/MoveSummary'
+        readOnly: true
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/MoveTargetName'
+        readOnly: true
+  MoveMeta:
+    title: Meta
+    required:
+      - ailment
+      - category
+    type: object
+    properties:
+      ailment:
+        $ref: '#/definitions/MoveMetaAilmentSummary'
+      category:
+        $ref: '#/definitions/MoveMetaCategorySummary'
+      min_hits:
+        title: Min hits
+        type: integer
+        x-nullable: true
+      max_hits:
+        title: Max hits
+        type: integer
+        x-nullable: true
+      min_turns:
+        title: Min turns
+        type: integer
+        x-nullable: true
+      max_turns:
+        title: Max turns
+        type: integer
+        x-nullable: true
+      drain:
+        title: Drain
+        type: integer
+        x-nullable: true
+      healing:
+        title: Healing
+        type: integer
+        x-nullable: true
+      crit_rate:
+        title: Crit rate
+        type: integer
+        x-nullable: true
+      ailment_chance:
+        title: Ailment chance
+        type: integer
+        x-nullable: true
+      flinch_chance:
+        title: Flinch chance
+        type: integer
+        x-nullable: true
+      stat_chance:
+        title: Stat chance
+        type: integer
+        x-nullable: true
+  MoveName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  MoveChange:
+    required:
+      - effect_chance
+      - type
+      - version_group
+    type: object
+    properties:
+      accuracy:
+        title: Accuracy
+        type: integer
+        x-nullable: true
+      power:
+        title: Power
+        type: integer
+        x-nullable: true
+      pp:
+        title: Pp
+        type: integer
+        x-nullable: true
+      effect_chance:
+        title: Effect chance
+        type: integer
+      effect_entries:
+        title: Effect entries
+        type: string
+        readOnly: true
+      type:
+        $ref: '#/definitions/TypeSummary'
+      version_group:
+        $ref: '#/definitions/VersionGroupSummary'
+  SuperContestEffectSummary:
+    title: Super contest effect
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  MoveFlavorText:
+    required:
+      - flavor_text
+      - language
+      - version_group
+    type: object
+    properties:
+      flavor_text:
+        title: Flavor text
+        type: string
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+      version_group:
+        $ref: '#/definitions/VersionGroupSummary'
+  MoveDetail:
+    required:
+      - name
+      - effect_chance
+      - contest_type
+      - contest_effect
+      - damage_class
+      - generation
+      - super_contest_effect
+      - target
+      - type
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      accuracy:
+        title: Accuracy
+        type: integer
+        x-nullable: true
+      effect_chance:
+        title: Effect chance
+        type: integer
+      pp:
+        title: Pp
+        type: integer
+        x-nullable: true
+      priority:
+        title: Priority
+        type: integer
+        x-nullable: true
+      power:
+        title: Power
+        type: integer
+        x-nullable: true
+      contest_combos:
+        title: Contest combos
+        type: string
+        readOnly: true
+      contest_type:
+        $ref: '#/definitions/ContestTypeSummary'
+      contest_effect:
+        $ref: '#/definitions/ContestEffectSummary'
+      damage_class:
+        $ref: '#/definitions/MoveDamageClassSummary'
+      effect_entries:
+        title: Effect entries
+        type: string
+        readOnly: true
+      effect_changes:
+        title: Effect changes
+        type: string
+        readOnly: true
+      generation:
+        $ref: '#/definitions/GenerationSummary'
+      meta:
+        $ref: '#/definitions/MoveMeta'
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/MoveName'
+        readOnly: true
+      past_values:
+        type: array
+        items:
+          $ref: '#/definitions/MoveChange'
+        readOnly: true
+      stat_changes:
+        title: Stat changes
+        type: string
+        readOnly: true
+      super_contest_effect:
+        $ref: '#/definitions/SuperContestEffectSummary'
+      target:
+        $ref: '#/definitions/MoveTargetSummary'
+      type:
+        $ref: '#/definitions/TypeSummary'
+      machines:
+        title: Machines
+        type: string
+        readOnly: true
+      flavor_text_entries:
+        type: array
+        items:
+          $ref: '#/definitions/MoveFlavorText'
+        readOnly: true
+  NatureSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  NatureBattleStylePreference:
+    required:
+      - low_hp_preference
+      - high_hp_preference
+      - move_battle_style
+    type: object
+    properties:
+      low_hp_preference:
+        title: Low hp preference
+        type: integer
+      high_hp_preference:
+        title: High hp preference
+        type: integer
+      move_battle_style:
+        $ref: '#/definitions/MoveBattleStyleSummary'
+  NatureName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  NatureDetail:
+    required:
+      - name
+      - decreased_stat
+      - increased_stat
+      - likes_flavor
+      - hates_flavor
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      decreased_stat:
+        $ref: '#/definitions/StatSummary'
+      increased_stat:
+        $ref: '#/definitions/StatSummary'
+      likes_flavor:
+        $ref: '#/definitions/BerryFlavorSummary'
+      hates_flavor:
+        $ref: '#/definitions/BerryFlavorSummary'
+      berries:
+        type: array
+        items:
+          $ref: '#/definitions/BerrySummary'
+        readOnly: true
+      pokeathlon_stat_changes:
+        title: Pokeathlon stat changes
+        type: string
+        readOnly: true
+      move_battle_style_preferences:
+        type: array
+        items:
+          $ref: '#/definitions/NatureBattleStylePreference'
+        readOnly: true
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/NatureName'
+        readOnly: true
+  PalParkAreaSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  PalParkAreaName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  PalParkAreaDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/PalParkAreaName'
+        readOnly: true
+      pokemon_encounters:
+        title: Pokemon encounters
+        type: string
+        readOnly: true
+  PokeathlonStatSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  PokeathlonStatName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  PokeathlonStatDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      affecting_natures:
+        title: Affecting natures
+        type: string
+        readOnly: true
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/PokeathlonStatName'
+        readOnly: true
+  PokedexSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  PokedexDescription:
+    required:
+      - language
+    type: object
+    properties:
+      description:
+        title: Description
+        type: string
+        maxLength: 1000
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  PokedexName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  PokedexDetail:
+    required:
+      - name
+      - region
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      is_main_series:
+        title: Is main series
+        type: boolean
+      descriptions:
+        type: array
+        items:
+          $ref: '#/definitions/PokedexDescription'
+        readOnly: true
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/PokedexName'
+        readOnly: true
+      pokemon_entries:
+        title: Pokemon entries
+        type: string
+        readOnly: true
+      region:
+        $ref: '#/definitions/RegionSummary'
+      version_groups:
+        title: Version groups
+        type: string
+        readOnly: true
+  PokemonColorSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  PokemonColorName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  PokemonColorDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/PokemonColorName'
+        readOnly: true
+      pokemon_species:
+        type: array
+        items:
+          $ref: '#/definitions/PokemonSpeciesSummary'
+        readOnly: true
+  PokemonFormSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  PokemonSummary:
+    title: Pokemon
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  PokemonFormDetail:
+    required:
+      - name
+      - form_name
+      - pokemon
+      - version_group
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      order:
+        title: Order
+        type: integer
+        x-nullable: true
+      form_order:
+        title: Form order
+        type: integer
+        x-nullable: true
+      is_default:
+        title: Is default
+        type: boolean
+      is_battle_only:
+        title: Is battle only
+        type: boolean
+      is_mega:
+        title: Is mega
+        type: boolean
+      form_name:
+        title: Form name
+        type: string
+        maxLength: 30
+        minLength: 1
+      pokemon:
+        $ref: '#/definitions/PokemonSummary'
+      sprites:
+        title: Sprites
+        type: string
+        readOnly: true
+      version_group:
+        $ref: '#/definitions/VersionGroupSummary'
+      form_names:
+        title: Form names
+        type: string
+        readOnly: true
+      names:
+        title: Names
+        type: string
+        readOnly: true
+  PokemonHabitatSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  PokemonHabitatName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  PokemonHabitatDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/PokemonHabitatName'
+        readOnly: true
+      pokemon_species:
+        type: array
+        items:
+          $ref: '#/definitions/PokemonSpeciesSummary'
+        readOnly: true
+  PokemonShapeSummary:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  PokemonShapeDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      awesome_names:
+        title: Awesome names
+        type: string
+        readOnly: true
+      names:
+        title: Names
+        type: string
+        readOnly: true
+      pokemon_species:
+        type: array
+        items:
+          $ref: '#/definitions/PokemonSpeciesSummary'
+        readOnly: true
+  PokemonDexEntry:
+    required:
+      - entry_number
+      - pokedex
+    type: object
+    properties:
+      entry_number:
+        title: Entry number
+        type: integer
+      pokedex:
+        $ref: '#/definitions/PokedexSummary'
+  PokemonSpeciesDescription:
+    required:
+      - language
+    type: object
+    properties:
+      description:
+        title: Description
+        type: string
+        maxLength: 1000
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  VersionSummary:
+    title: Version
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+  PokemonSpeciesFlavorText:
+    required:
+      - flavor_text
+      - language
+      - version
+    type: object
+    properties:
+      flavor_text:
+        title: Flavor text
+        type: string
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+      version:
+        $ref: '#/definitions/VersionSummary'
+  PokemonSpeciesDetail:
+    required:
+      - name
+      - gender_rate
+      - capture_rate
+      - base_happiness
+      - hatch_counter
+      - growth_rate
+      - color
+      - shape
+      - evolves_from_species
+      - evolution_chain
+      - habitat
+      - generation
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      order:
+        title: Order
+        type: integer
+        x-nullable: true
+      gender_rate:
+        title: Gender rate
+        type: integer
+      capture_rate:
+        title: Capture rate
+        type: integer
+      base_happiness:
+        title: Base happiness
+        type: integer
+      is_baby:
+        title: Is baby
+        type: boolean
+      hatch_counter:
+        title: Hatch counter
+        type: integer
+      has_gender_differences:
+        title: Has gender differences
+        type: boolean
+      forms_switchable:
+        title: Forms switchable
+        type: boolean
+      growth_rate:
+        $ref: '#/definitions/GrowthRateSummary'
+      pokedex_numbers:
+        type: array
+        items:
+          $ref: '#/definitions/PokemonDexEntry'
+        readOnly: true
+      egg_groups:
+        title: Egg groups
+        type: string
+        readOnly: true
+      color:
+        $ref: '#/definitions/PokemonColorSummary'
+      shape:
+        $ref: '#/definitions/PokemonShapeSummary'
+      evolves_from_species:
+        $ref: '#/definitions/PokemonSpeciesSummary'
+      evolution_chain:
+        $ref: '#/definitions/EvolutionChainSummary'
+      habitat:
+        $ref: '#/definitions/PokemonHabitatSummary'
+      generation:
+        $ref: '#/definitions/GenerationSummary'
+      names:
+        title: Names
+        type: string
+        readOnly: true
+      pal_park_encounters:
+        title: Pal park encounters
+        type: string
+        readOnly: true
+      form_descriptions:
+        type: array
+        items:
+          $ref: '#/definitions/PokemonSpeciesDescription'
+        readOnly: true
+      flavor_text_entries:
+        type: array
+        items:
+          $ref: '#/definitions/PokemonSpeciesFlavorText'
+        readOnly: true
+      genera:
+        title: Genera
+        type: string
+        readOnly: true
+      varieties:
+        title: Varieties
+        type: string
+        readOnly: true
+  PokemonGameIndex:
+    required:
+      - game_index
+      - version
+    type: object
+    properties:
+      game_index:
+        title: Game index
+        type: integer
+      version:
+        $ref: '#/definitions/VersionSummary'
+  PokemonStat:
+    required:
+      - base_stat
+      - effort
+      - stat
+    type: object
+    properties:
+      base_stat:
+        title: Base stat
+        type: integer
+      effort:
+        title: Effort
+        type: integer
+      stat:
+        $ref: '#/definitions/StatSummary'
+  PokemonDetail:
+    required:
+      - name
+      - base_experience
+      - height
+      - weight
+      - species
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      base_experience:
+        title: Base experience
+        type: integer
+      height:
+        title: Height
+        type: integer
+      is_default:
+        title: Is default
+        type: boolean
+      order:
+        title: Order
+        type: integer
+        x-nullable: true
+      weight:
+        title: Weight
+        type: integer
+      abilities:
+        title: Abilities
+        type: string
+        readOnly: true
+      forms:
+        type: array
+        items:
+          $ref: '#/definitions/PokemonFormSummary'
+        readOnly: true
+      game_indices:
+        type: array
+        items:
+          $ref: '#/definitions/PokemonGameIndex'
+        readOnly: true
+      held_items:
+        title: Held items
+        type: string
+        readOnly: true
+      location_area_encounters:
+        title: Location area encounters
+        type: string
+        readOnly: true
+      moves:
+        title: Moves
+        type: string
+        readOnly: true
+      species:
+        $ref: '#/definitions/PokemonSpeciesSummary'
+      sprites:
+        title: Sprites
+        type: string
+        readOnly: true
+      stats:
+        type: array
+        items:
+          $ref: '#/definitions/PokemonStat'
+        readOnly: true
+      types:
+        title: Types
+        type: string
+        readOnly: true
+  RegionName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  RegionDetail:
+    required:
+      - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      locations:
+        type: array
+        items:
+          $ref: '#/definitions/LocationSummary'
+        readOnly: true
+      main_generation:
+        $ref: '#/definitions/GenerationSummary'
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/RegionName'
+        readOnly: true
+      pokedexes:
+        type: array
+        items:
+          $ref: '#/definitions/PokedexSummary'
+        readOnly: true
+      version_groups:
+        title: Version groups
+        type: string
+        readOnly: true
+  StatName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  StatDetail:
+    required:
+      - name
+      - game_index
+      - move_damage_class
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      game_index:
+        title: Game index
+        type: integer
+      is_battle_only:
+        title: Is battle only
+        type: boolean
+      affecting_moves:
+        title: Affecting moves
+        type: string
+        readOnly: true
+      affecting_natures:
+        title: Affecting natures
+        type: string
+        readOnly: true
+      characteristics:
+        type: array
+        items:
+          $ref: '#/definitions/CharacteristicSummary'
+        readOnly: true
+      move_damage_class:
+        $ref: '#/definitions/MoveDamageClassSummary'
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/StatName'
+        readOnly: true
+  SuperContestEffectFlavorText:
+    required:
+      - flavor_text
+      - language
+    type: object
+    properties:
+      flavor_text:
+        title: Flavor text
+        type: string
+        maxLength: 500
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  SuperContestEffectDetail:
+    required:
+      - appeal
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      appeal:
+        title: Appeal
+        type: integer
+      flavor_text_entries:
+        type: array
+        items:
+          $ref: '#/definitions/SuperContestEffectFlavorText'
+        readOnly: true
+      moves:
+        type: array
+        items:
+          $ref: '#/definitions/MoveSummary'
+        readOnly: true
+  TypeGameIndex:
+    required:
+      - game_index
+      - generation
+    type: object
+    properties:
+      game_index:
+        title: Game index
+        type: integer
+      generation:
+        $ref: '#/definitions/GenerationSummary'
+  TypeDetail:
+    required:
+      - name
+      - generation
+      - move_damage_class
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      damage_relations:
+        title: Damage relations
+        type: string
+        readOnly: true
+      game_indices:
+        type: array
+        items:
+          $ref: '#/definitions/TypeGameIndex'
+        readOnly: true
+      generation:
+        $ref: '#/definitions/GenerationSummary'
+      move_damage_class:
+        $ref: '#/definitions/MoveDamageClassSummary'
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/AbilityName'
+        readOnly: true
+      pokemon:
+        title: Pokemon
+        type: string
+        readOnly: true
+      moves:
+        type: array
+        items:
+          $ref: '#/definitions/MoveSummary'
+        readOnly: true
+  VersionGroupDetail:
+    required:
+      - name
+      - generation
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      order:
+        title: Order
+        type: integer
+        x-nullable: true
+      generation:
+        $ref: '#/definitions/GenerationSummary'
+      move_learn_methods:
+        title: Move learn methods
+        type: string
+        readOnly: true
+      pokedexes:
+        title: Pokedexes
+        type: string
+        readOnly: true
+      regions:
+        title: Regions
+        type: string
+        readOnly: true
+      versions:
+        type: array
+        items:
+          $ref: '#/definitions/VersionSummary'
+        readOnly: true
+  VersionName:
+    required:
+      - name
+      - language
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      language:
+        $ref: '#/definitions/LanguageSummary'
+  VersionDetail:
+    required:
+      - name
+      - version_group
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/VersionName'
+        readOnly: true
+      version_group:
+        $ref: '#/definitions/VersionGroupSummary'
